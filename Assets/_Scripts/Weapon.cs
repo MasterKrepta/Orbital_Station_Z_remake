@@ -20,7 +20,8 @@ public class Weapon : MonoBehaviour  {
     }
 
     void GetInput() {
-        if (Input.GetButtonDown("Fire1")) {
+        float triggers = Input.GetAxis("Triggers");
+        if (triggers < 0 && CanFire()) {
             Fire();
         }
     }
