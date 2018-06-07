@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour, IDamagable {
 
     [SerializeField] float maxHealth = 3f;
     [SerializeField] float currentHealth;
+    [SerializeField] float dmgAmount = 1;
 
     private void OnEnable() {
         
@@ -32,6 +33,14 @@ public class Enemy : MonoBehaviour, IDamagable {
     void Start () {
         currentHealth = maxHealth;
 	}
-	
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.GetComponent<IDamagable>() != null) {
+            other.GetComponent<IDamagable>().TakeDamage(dmgAmount);
+        }
+    }
+
+    
+
 
 }
