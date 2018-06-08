@@ -17,10 +17,12 @@ public class SpawnManager : MonoBehaviour {
 
     private void OnEnable() {
         EventManager.OnEnemyKilled += ReduceEnemyCount;
+        EventManager.OnGameOver += CancelAllSpawning;
     }
 
     private void OnDisable() {
         EventManager.OnEnemyKilled -= ReduceEnemyCount;
+        EventManager.OnGameOver -= CancelAllSpawning;
     }
 
     // Update is called once per frame
@@ -82,6 +84,10 @@ public class SpawnManager : MonoBehaviour {
             StartCoroutine(SpawnWave());
         }
 
+    }
 
+    void CancelAllSpawning() {
+        Debug.Log("stopping spawing");
+        StopAllCoroutines();
     }
 }

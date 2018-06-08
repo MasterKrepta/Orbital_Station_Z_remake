@@ -35,8 +35,8 @@ public class Enemy : MonoBehaviour, IDamagable {
 	}
 
     private void OnTriggerEnter(Collider other) {
-        if (other.GetComponent<IDamagable>() != null) {
-            other.GetComponent<IDamagable>().TakeDamage(dmgAmount);
+        if (other.GetComponentInParent<IDamagable>() != null) {
+            other.GetComponentInParent<IDamagable>().TakeDamage(dmgAmount);
         }
     }
 

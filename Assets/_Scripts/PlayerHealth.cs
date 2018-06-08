@@ -10,8 +10,11 @@ public class PlayerHealth : MonoBehaviour, IDamagable {
     [SerializeField] float resetTime = 2f;
 
     public void Die() {
+        EventManager.CallOnGameOver(); // This should work
+        
         //TODO This is not going to work long term
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
+        
     }
 
     public void TakeDamage(float dmg) {

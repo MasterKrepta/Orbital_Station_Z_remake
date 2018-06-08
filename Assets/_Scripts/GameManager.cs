@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
     void Awake() {
         Level = 1;
         spawnManager = GetComponent<SpawnManager>();
+        
         if (instance != null && instance != this) {
             Destroy(this.gameObject);
             return;
@@ -28,8 +29,9 @@ public class GameManager : MonoBehaviour {
         }
         DontDestroyOnLoad(this.gameObject);
     }
-    #endregion
 
+   
+    #endregion
 
     
 }
